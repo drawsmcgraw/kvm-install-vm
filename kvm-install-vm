@@ -368,10 +368,10 @@ function set_cloud_init_remove ()
 {
     case "${DISTRO}" in
         centos6 )
-            CLOUDINITDISABLE="chkconfig cloud-init off"
+            CLOUDINITDISABLE="yum remove -y cloud-init"
             ;;
         centos7|amazon?|fedora??|ubuntu*|debian? )
-            CLOUDINITDISABLE="systemctl disable cloud-init.service"
+            CLOUDINITDISABLE="yum remove -y cloud-init"
             ;;
         *-atomic)
             CLOUDINITDISABLE="/usr/bin/true"
